@@ -13,6 +13,12 @@ const upload = () => {
   const [statusText, setStatusText] = useState("");
   const [file, setFile] = useState<File | null>(null);
 
+  // Only redirect to login if not authenticated and trying to access upload
+  if (!isLoading && !auth.isAuthenticated) {
+    navigate(`/auth?next=/upload`);
+    return null;
+  }
+
   const handleFileSelect = (file: File | null) => {
     setFile(file);
   };
@@ -96,7 +102,7 @@ const upload = () => {
       data.feedback = JSON.parse(feedbackText);
       console.log("AI Feedback Result:", data.feedback);
       navigate(`/resume/${uuid}`);
-      
+
       await kv.set(`resume:${uuid}`, JSON.stringify(data));
       setStatusText("Analysis Completed Redirecting!");
     } catch (err) {

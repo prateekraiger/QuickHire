@@ -18,9 +18,7 @@ export default function Home() {
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
 
-  useEffect(() => {
-    if (!auth.isAuthenticated) navigate("/auth?next=/");
-  }, [auth.isAuthenticated]);
+  // Removed automatic login redirect on home page
 
   useEffect(() => {
     const loadResumes = async () => {
