@@ -7,6 +7,9 @@ interface Job {
 
 interface Resume {
   id: string;
+  name?: string;
+  createdAt: number;
+  score?: number;
   companyName?: string;
   jobTitle?: string;
   imagePath: string;

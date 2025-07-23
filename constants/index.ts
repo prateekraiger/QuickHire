@@ -1,6 +1,7 @@
 export const resumes: Resume[] = [
   {
     id: "1",
+    createdAt: Date.now(),
     companyName: "Google",
     jobTitle: "Frontend Developer",
     imagePath: "/images/resume-1.png",
@@ -31,6 +32,7 @@ export const resumes: Resume[] = [
   },
   {
     id: "2",
+    createdAt: Date.now(),
     companyName: "Microsoft",
     jobTitle: "Cloud Engineer",
     imagePath: "/images/resume-2.png",
@@ -61,6 +63,9 @@ export const resumes: Resume[] = [
   },
   {
     id: "3",
+    createdAt: Date.now(),
+    name: "Apple",
+    score: 75,
     companyName: "Apple",
     jobTitle: "iOS Developer",
     imagePath: "/images/resume-3.png",
@@ -91,6 +96,9 @@ export const resumes: Resume[] = [
   },
   {
     id: "4",
+    createdAt: Date.now(),
+    name: "Google",
+    score: 85,
     companyName: "Google",
     jobTitle: "Frontend Developer",
     imagePath: "/images/resume-1.png",
@@ -121,6 +129,9 @@ export const resumes: Resume[] = [
   },
   {
     id: "5",
+    createdAt: Date.now(),
+    name: "Microsoft",
+    score: 55,
     companyName: "Microsoft",
     jobTitle: "Cloud Engineer",
     imagePath: "/images/resume-2.png",
@@ -151,6 +162,9 @@ export const resumes: Resume[] = [
   },
   {
     id: "6",
+    createdAt: Date.now(),
+    name: "Apple",
+    score: 75,
     companyName: "Apple",
     jobTitle: "iOS Developer",
     imagePath: "/images/resume-3.png",

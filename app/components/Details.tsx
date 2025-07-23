@@ -12,10 +12,10 @@ const ScoreBadge = ({ score }: { score: number }) => {
       className={cn(
         "flex flex-row gap-1 items-center px-2 py-0.5 rounded-[96px]",
         score > 69
-          ? "bg-badge-green"
+          ? "bg-primary/10"
           : score > 39
-          ? "bg-badge-yellow"
-          : "bg-badge-red"
+          ? "bg-accent/10"
+          : "bg-destructive/10"
       )}
     >
       <img

@@ -39,7 +39,7 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
       <div
         {...getRootProps({
           className:
-            "flex flex-col items-center justify-center min-h-[180px] transition-all duration-300 border-2 border-dashed border-gray-300 rounded-2xl bg-white hover:border-blue-400 cursor-pointer",
+            "flex flex-col items-center justify-center min-h-[180px] transition-all duration-300 border-2 border-dashed border-border rounded-2xl bg-background hover:border-primary cursor-pointer",
         })}
       >
         <input {...getInputProps()} />

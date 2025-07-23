@@ -1,4 +1,4 @@
-import Navbar from "~/components/Navbar";
+
 import { useState, type FormEvent } from "react";
 import FileUploader from "~/components/FileUploader";
 import { usePuterStore } from "~/lib/puter";
@@ -136,7 +136,7 @@ const upload = () => {
   };
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
-      <Navbar />
+      
 
       <section className="main-section">
         <div className="page-heading py-16">

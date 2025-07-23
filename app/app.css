@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
-  --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Sansation", "Tomorrow", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "Tomorrow", "Sansation", ui-sans-serif, system-ui, sans-serif;
   --color-dark-200: #475467;
   --color-light-blue-100: #c1d3f81a;
   --color-light-blue-200: #a7bff14d;
@@ -20,7 +22,7 @@
 
 html,
 body {
-  @apply bg-white;
+  @apply bg-white font-sans;
 }
 
 main {
@@ -28,15 +30,19 @@ main {
 }
 
 h1 {
-  @apply max-sm:text-[3rem] text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+  @apply max-sm:text-[3rem] text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold font-heading;
 }
 
 h2 {
-  @apply max-sm:text-xl text-3xl text-dark-200;
+  @apply max-sm:text-xl text-3xl text-foreground font-heading;
 }
 
 label {
-  @apply text-dark-200;
+  @apply text-foreground;
+}
+
+p {
+  @apply text-muted-foreground font-sans;
 }
 
 input {
@@ -53,7 +59,21 @@ form {
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+
+  .bg-grid {
+    @apply relative h-full w-full bg-background;
+  }
+
+  .bg-grid::before {
+    content: "";
+    @apply absolute inset-0 -z-10;
+    background: linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
   }
 
   .gradient-border {
@@ -162,5 +182,141 @@ form {
 
   to {
     opacity: 1;
+  }
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Custom color palette */
+  --color-light-sage: #cad2c5;
+  --color-medium-sage: #84a98c;
+  --color-dark-sage: #52796f;
+  --color-deep-teal: #354f52;
+  --color-dark-slate: #2f3e46;
+
+  /* Map our custom colors to shadcn variables */
+  --background: white;
+  --foreground: var(--color-dark-slate);
+  --card: white;
+  --card-foreground: var(--color-dark-slate);
+  --popover: white;
+  --popover-foreground: var(--color-dark-slate);
+  --primary: var(--color-medium-sage);
+  --primary-foreground: white;
+  --secondary: var(--color-dark-sage);
+  --secondary-foreground: white;
+  --muted: var(--color-light-sage);
+  --muted-foreground: var(--color-dark-slate);
+  --accent: var(--color-deep-teal);
+  --accent-foreground: white;
+  --destructive: #ef4444;
+  --border: var(--color-light-sage);
+  --input: var(--color-light-sage);
+  --ring: var(--color-medium-sage);
+  --grid: hsl(210 40% 96.1%);
+
+  /* Chart colors */
+  --chart-1: var(--color-medium-sage);
+  --chart-2: var(--color-dark-sage);
+  --chart-3: var(--color-deep-teal);
+  --chart-4: var(--color-dark-slate);
+  --chart-5: var(--color-light-sage);
+
+  /* Sidebar colors */
+  --sidebar: white;
+  --sidebar-foreground: var(--color-dark-slate);
+  --sidebar-primary: var(--color-medium-sage);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--color-deep-teal);
+  --sidebar-accent-foreground: white;
+  --sidebar-border: var(--color-light-sage);
+  --sidebar-ring: var(--color-medium-sage);
+}
+
+.dark {
+  /* Dark mode with our custom color palette */
+  --background: var(--color-dark-slate);
+  --foreground: white;
+  --card: var(--color-deep-teal);
+  --card-foreground: white;
+  --popover: var(--color-deep-teal);
+  --popover-foreground: white;
+  --primary: var(--color-medium-sage);
+  --primary-foreground: var(--color-dark-slate);
+  --secondary: var(--color-dark-sage);
+  --secondary-foreground: white;
+  --muted: var(--color-deep-teal);
+  --muted-foreground: var(--color-light-sage);
+  --accent: var(--color-light-sage);
+  --accent-foreground: var(--color-dark-slate);
+  --destructive: #ef4444;
+  --border: var(--color-deep-teal);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: var(--color-medium-sage);
+  --grid: rgba(255, 255, 255, 0.05);
+
+  /* Chart colors for dark mode */
+  --chart-1: var(--color-medium-sage);
+  --chart-2: var(--color-light-sage);
+  --chart-3: var(--color-dark-sage);
+  --chart-4: var(--color-deep-teal);
+  --chart-5: var(--color-dark-slate);
+
+  /* Sidebar colors for dark mode */
+  --sidebar: var(--color-deep-teal);
+  --sidebar-foreground: white;
+  --sidebar-primary: var(--color-medium-sage);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--color-dark-sage);
+  --sidebar-accent-foreground: white;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--color-medium-sage);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }

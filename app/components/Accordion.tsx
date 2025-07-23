@@ -55,7 +55,7 @@ export const Accordion: React.FC<AccordionProps> = ({
     <AccordionContext.Provider
       value={{ activeItems, toggleItem, isItemActive }}
     >
-      <div className={`space-y-2 ${className}`}>{children}</div>
+      <div className={cn("flex flex-col gap-3", className)}>{children}</div>
     </AccordionContext.Provider>
   );
 };
@@ -72,7 +72,12 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`overflow-hidden border-b border-gray-200 ${className}`}>
+    <div
+      className={cn(
+        "overflow-hidden border-b border-border bg-card rounded-lg shadow-sm",
+        className
+      )}
+    >
       {children}
     </div>
   );
@@ -98,11 +103,12 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
 
   const defaultIcon = (
     <svg
-      className={cn("w-5 h-5 transition-transform duration-200", {
-        "rotate-180": isActive,
-      })}
+      className={cn(
+        "w-6 h-6 ml-2 transition-transform duration-200 text-gray-400",
+        { "rotate-180": isActive }
+      )}
       fill="none"
-      stroke="#98A2B3"
+      stroke="currentColor"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -122,17 +128,16 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   return (
     <button
       onClick={handleClick}
-      className={`
-        w-full px-4 py-3 text-left
-        focus:outline-none
-        transition-colors duration-200 flex items-center justify-between cursor-pointer
-        ${className}
-      `}
+      className={cn(
+        "w-full px-6 py-4 text-left flex items-center justify-between cursor-pointer bg-white hover:bg-gray-50 rounded-lg transition-all border-none shadow-none text-xl font-semibold text-gray-800",
+        className
+      )}
+      style={{ fontSize: "1.25rem" }}
     >
-      <div className="flex items-center space-x-3">
+      <span className="flex items-center gap-3">
         {iconPosition === "left" && (icon || defaultIcon)}
-        <div className="flex-1">{children}</div>
-      </div>
+        <span className="flex-1">{children}</span>
+      </span>
       {iconPosition === "right" && (icon || defaultIcon)}
     </button>
   );
@@ -154,13 +159,16 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 
   return (
     <div
-      className={`
-        overflow-hidden transition-all duration-300 ease-in-out
-        ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
-        ${className}
-      `}
+      className={cn(
+        "overflow-hidden transition-all duration-300 ease-in-out bg-gray-50 rounded-b-lg",
+        isActive
+          ? "max-h-[500px] opacity-100 py-4 px-6"
+          : "max-h-0 opacity-0 py-0 px-6",
+        className
+      )}
+      style={{ fontSize: "1.1rem" }}
     >
-      <div className="px-4 py-3 ">{children}</div>
+      {children}
     </div>
   );
 };
