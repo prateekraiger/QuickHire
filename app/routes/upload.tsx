@@ -15,7 +15,14 @@ const upload = () => {
 
   // Only redirect to login if not authenticated and trying to access upload
   if (!isLoading && !auth.isAuthenticated) {
-    navigate(`/auth?next=/upload`);
+    // Try to trigger puter.js login
+    if (auth.signIn) {
+      auth.signIn().then(() => {
+        navigate('/upload');
+      });
+    } else {
+      navigate(`/auth?next=/upload`);
+    }
     return null;
   }
 
