@@ -4,9 +4,6 @@
 
 An intelligent resume analysis platform that helps job seekers optimize their resumes using advanced AI technology. Get instant feedback, ATS compatibility scores, and actionable insights to land your dream job.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/prateekraiger/quickhire-ai)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
 
 ## ✨ Features
@@ -18,26 +15,12 @@ An intelligent resume analysis platform that helps job seekers optimize their re
 - **Content Analysis** - Detailed feedback on resume structure and content
 - **Industry-Specific Insights** - Tailored recommendations for your field
 
-### 🎨 Modern User Experience
-
-- **Beautiful UI** - Built with shadcn/ui components and custom design system
-- **Responsive Design** - Perfect experience across all devices
-- **Smooth Animations** - Enhanced interactions with Framer Motion
-- **Professional Theme** - Sage green color palette with modern aesthetics
-
-### ⚡ Technical Excellence
-
-- **React Router 7** - Latest routing with SSR capabilities
-- **TypeScript** - Full type safety and better developer experience
-- **TailwindCSS 4** - Modern utility-first styling
-- **PDF Processing** - Advanced PDF parsing and analysis
-- **Cloud Storage** - Secure file handling with Puter.com integration
-
 ## 🛠️ Technology Stack
 
-| Category | Technologies |
-|----------|-------------|
-| **Fronations**: Framer Motion
+| Category     | Technologies              |
+| ------------ | ------------------------- |
+| **Frontend** | React 19, React Router 7, |
+
 - **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
 - **State Management**: Zustand
@@ -73,42 +56,12 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-## 🏗️ Building for Production
-
-Create a production build:
-
-```bash
-pnpm build
-# or
-npm run build
-```
-
-### Type Checking
-
-Run TypeScript type checking:
-
-```bash
-pnpm typecheck
-# or
-npm run typecheck
-```
-
 ### Components
 
 - **shadcn/ui**: Modern, accessible component library
 - **Custom Components**: Tailored for resume analysis workflow
 - **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 - **Animations**: Smooth transitions and micro-interactions
-
-## 🔧 Configuration
-
-### Environment Setup
-
-Create a `.env` file for any environment-specific configurations:
-
-```bash
-# Add your environment variables here
-```
 
 ## 📁 Project Structure
 
@@ -138,5 +91,3 @@ Create a `.env` file for any environment-specific configurations:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Built with ❤️ using React Router, shadcn/ui, and modern web technologies.

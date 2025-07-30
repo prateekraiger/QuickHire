@@ -10,9 +10,8 @@ import { Hero } from "~/components/ui/animated-hero";
 import { CallToActionSection } from "~/components/CallToActionSection";
 import { FeatureSection } from "~/components/ui/feature-section";
 import { TestimonialSection } from "~/components/ui/testimonial-section";
-import { StatsSection } from "~/components/ui/stats-section";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta({}: Route.MetaArgs) {
   return [
     { title: "QuickHire AI - Smart Resume Feedback" },
     {
@@ -46,8 +45,6 @@ export default function Home() {
 
   return (
     <>
-
-
       <main className="flex-1">
         <Hero />
 
@@ -59,7 +56,8 @@ export default function Home() {
                 How It Works
               </h2>
               <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-                Our platform provides comprehensive resume analysis and feedback to help you land your dream job in three simple steps.
+                Our platform provides comprehensive resume analysis and feedback
+                to help you land your dream job in three simple steps.
               </p>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-3">
@@ -69,7 +67,8 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 text-xl font-bold">Upload Your Resume</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Submit your resume in PDF format and provide the job description for the role you're targeting.
+                  Submit your resume in PDF format and provide the job
+                  description for the role you're targeting.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
@@ -78,7 +77,8 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 text-xl font-bold">Receive AI Feedback</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Our AI analyzes your resume against the job description, providing a detailed report and an ATS score.
+                  Our AI analyzes your resume against the job description,
+                  providing a detailed report and an ATS score.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
@@ -87,7 +87,8 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 text-xl font-bold">Optimize and Apply</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Use our feedback to improve your resume and increase your chances of getting an interview.
+                  Use our feedback to improve your resume and increase your
+                  chances of getting an interview.
                 </p>
               </div>
             </div>
@@ -96,9 +97,6 @@ export default function Home() {
 
         {/* Feature Section */}
         <FeatureSection />
-        
-        {/* Stats Section */}
-        <StatsSection />
 
         {/* Resume List Section (if user has resumes) */}
         {!loadingResumes && resumes.length > 0 && (
@@ -150,27 +148,53 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-5xl text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Frequently Asked Questions
+              </h2>
               <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-                Find answers to common questions about our platform and services.
+                Find answers to common questions about our platform and
+                services.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
-                <h3 className="text-xl font-bold mb-3">How accurate is the AI feedback?</h3>
-                <p className="text-muted-foreground">Our AI is trained on thousands of successful resumes and hiring patterns. It provides highly accurate feedback based on industry standards and ATS requirements.</p>
+                <h3 className="text-xl font-bold mb-3">
+                  How accurate is the AI feedback?
+                </h3>
+                <p className="text-muted-foreground">
+                  Our AI is trained on thousands of successful resumes and
+                  hiring patterns. It provides highly accurate feedback based on
+                  industry standards and ATS requirements.
+                </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
-                <h3 className="text-xl font-bold mb-3">Do you offer enterprise solutions?</h3>
-                <p className="text-muted-foreground">Yes, we provide customized enterprise solutions for companies of all sizes. Contact our sales team to discuss your specific requirements.</p>
+                <h3 className="text-xl font-bold mb-3">
+                  Do you offer enterprise solutions?
+                </h3>
+                <p className="text-muted-foreground">
+                  Yes, we provide customized enterprise solutions for companies
+                  of all sizes. Contact our sales team to discuss your specific
+                  requirements.
+                </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
-                <h3 className="text-xl font-bold mb-3">Is there a free trial available?</h3>
-                <p className="text-muted-foreground">Yes, we offer a limited free trial that allows you to analyze one resume. Sign up on our platform to get started.</p>
+                <h3 className="text-xl font-bold mb-3">
+                  Is there a free trial available?
+                </h3>
+                <p className="text-muted-foreground">
+                  Yes, we offer a limited free trial that allows you to analyze
+                  one resume. Sign up on our platform to get started.
+                </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-primary/30">
-                <h3 className="text-xl font-bold mb-3">How secure is my resume data?</h3>
-                <p className="text-muted-foreground">We take data security seriously. All uploaded resumes are encrypted, and we never share your personal information with third parties without your consent.</p>
+                <h3 className="text-xl font-bold mb-3">
+                  How secure is my resume data?
+                </h3>
+                <p className="text-muted-foreground">
+                  We take data security seriously. All uploaded resumes are
+                  encrypted, and we never share your personal information with
+                  third parties without your consent.
+                </p>
               </div>
             </div>
           </div>
@@ -178,8 +202,6 @@ export default function Home() {
 
         <CallToActionSection />
       </main>
-
-
     </>
   );
 }
