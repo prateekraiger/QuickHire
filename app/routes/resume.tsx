@@ -78,7 +78,7 @@ const resume = () => {
   }, [id]);
 
   return (
-    <main className="!pt-0">
+    <main className="!pt-0 min-h-screen">
       <nav className="resume-nav">
         <Link to="/" className="back-button">
           <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
@@ -88,22 +88,25 @@ const resume = () => {
         </Link>
       </nav>
 
-      <div className="flex flex-row w-full max-lg:flex-col-reverse">
-        <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-[100vh] sticky top-0 items-center justify-center ">
+      <div className="flex flex-row w-full max-lg:flex-col-reverse min-h-screen">
+        {/* Left Section - Resume Preview (Sticky on desktop, normal on mobile) */}
+        <section className="w-1/2 max-lg:w-full bg-[url('/images/bg-small.svg')] bg-cover lg:h-screen lg:sticky lg:top-0 max-lg:min-h-[50vh] flex items-center justify-center px-8 py-6">
           {imageUrl && resumeUrl && (
-            <div className="animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit">
+            <div className="animate-in fade-in duration-1000 gradient-border max-sm:m-0 lg:h-[90%] max-lg:h-auto max-w-xl:h-fit w-fit">
               <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                 <img
                   src={imageUrl}
                   alt="Resume"
-                  className="w-full h-full object-contain rounded-xl"
+                  className="w-full h-full object-contain rounded-xl max-lg:max-h-[400px]"
                   title="Resume"
                 />
               </a>
             </div>
           )}
         </section>
-        <section className="feedback-section ">
+
+        {/* Right Section - Feedback (Scrollable) */}
+        <section className="w-1/2 max-lg:w-full flex flex-col gap-8 px-8 py-6 lg:overflow-y-auto lg:max-h-screen">
           <h2 className="text-4xl text-black font-bold">Resume Review</h2>
           {feedback ? (
             <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
