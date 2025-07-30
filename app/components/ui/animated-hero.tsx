@@ -1,29 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { MoveRight, CheckCircle, Star, Zap } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Link } from "react-router";
 
 function Hero() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["AI-Powered", "Smart", "Instant", "Professional"],
-    []
-  );
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (titleNumber === titles.length - 1) {
-        setTitleNumber(0);
-      } else {
-        setTitleNumber(titleNumber + 1);
-      }
-    }, 2500);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
-
   return (
-    <section className="w-full min-h-screen flex items-center bg-gradient-to-br from-white via-primary/5 to-primary/10">
+    <section className="w-full min-h-screen flex items-center bg-gradient-to-br from-white via-primary/5 to-primary/10 relative">
+      {/* Dotted Background Pattern */}
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-12 lg:py-20">
           {/* Left Section - Text Content */}
@@ -47,35 +32,7 @@ function Hero() {
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
-                Get{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10">
-                    {titles.map((title, index) => (
-                      <motion.span
-                        key={index}
-                        className={`absolute left-0 top-0 font-bold ${
-                          title === "AI-Powered"
-                            ? "text-primary"
-                            : title === "Smart"
-                            ? "text-blue-500"
-                            : title === "Instant"
-                            ? "text-purple-500"
-                            : "text-accent"
-                        }`}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={
-                          titleNumber === index
-                            ? { opacity: 1, y: 0 }
-                            : { opacity: 0, y: titleNumber > index ? -20 : 20 }
-                        }
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                      >
-                        {title}
-                      </motion.span>
-                    ))}
-                  </span>
-                  <span className="invisible">{titles[0]}</span>
-                </span>{" "}
+                Get <span className="text-primary font-bold">AI Powered</span>{" "}
                 <br />
                 Resume Feedback
               </h1>
